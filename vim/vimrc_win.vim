@@ -1,14 +1,21 @@
 "======================================================================
 " WINDOWS 설정
 "======================================================================
+colorscheme janah
+
 " set 'selection', 'selectmode', 'mousemodel' and 'keymodel' for MS-Windows
 behave mswin
+
+set guioptions-=m  "remove menu bar
+set guioptions-=T  "remove toolbar
+set guioptions-=r  "remove right-hand scroll bar
+set guioptions-=L  "remove left-hand scroll bar
+
 
 " 마우스 우클릭 붙여넣기
 set mousemodel=extend
 map <RightMouse> <MiddleMouse>
 
-cd C:\Users\jklee\Downloads
 imap <C-S> <ESC>:w<CR>
 map <C-S> :w<CR>
 
@@ -18,11 +25,11 @@ map <C-S> :w<CR>
 " imap <C-v> <ESC>"+pa
 map <A-w> :q!<CR>
 
-" Bell Sound off
-set belloff=all
 
 set grepprg=grep\ -snH
-nnoremap <Leader>x :e C:\Users\jklee\AppData\Local\nvim\init.vim<CR><CR>
+
+cd \%USERPROFILE\%\\Downloads
+nnoremap <Leader>x :e \%USERPROFILE\%\\Dropbox\\ENV\\vim\\vimrc<CR><CR>
 
 " 한글 깨지는것을 utf-8 로 다시 인코딩해서 읽기
 " map <Leader>e :e ++enc=utf-8 <CR>

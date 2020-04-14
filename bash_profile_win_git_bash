@@ -10,14 +10,6 @@ blue="\[\033[0;34m\]"
 purple="\[\033[0;35m\]"
 reset="\[\033[0m\]"
 
-# Change command prompt
-source /c/Users/이재국/Dropbox/ENV/git-prompt.sh
-export GIT_PS1_SHOWDIRTYSTATE=1
-# '\u' adds the name of the current user to the prompt
-# '\$(__git_ps1)' adds git-related stuff
-# '\W' adds the name of the current directory
-export PS1="$purple\u$green\$(__git_ps1)$blue \W $ $reset"
-
 export PATH=/c/Users/이재국/bin:/usr/local/bin:/usr/bin:/bin:/opt/bin:/c/WINDOWS/system32:/c/WINDOWS:/c/WINDOWS/System32/Wbem:/c/WINDOWS/System32/WindowsPowerShell/v1.0:/c/WINDOWS/System32/OpenSSH:/c/Program\ Files/Git/cmd:
 
 
@@ -26,4 +18,6 @@ alias cddown='cd ~/Downloads'
 alias src='cd  ~/Source'
 alias cdenv='cd  ~/Dropbox/ENV'
 alias env='cd  ~/Dropbox/ENV'
+alias 105_sunje='ssh sunje@192.168.10.105'
+alias 124_nocs05='ssh nocs05@192.168.10.124'
 

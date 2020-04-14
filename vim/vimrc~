@@ -57,7 +57,7 @@ set fileencodings=utf-8,euc-kr,cp949
 set t_Co=256
 set background=dark
 let g:rehash256 = 1
-colorscheme janah
+"colorscheme janah
 
 "======================================================================
 " 들여쓰기 설정

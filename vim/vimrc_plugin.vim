@@ -4,31 +4,31 @@
 "==============================================================
 
 if has("win32")
-	call plug#begin('~/AppData/Local/nvim/autoload')
+	call plug#begin('~/.vim/plugged')
 elseif has("nvim")
 	call plug#begin('~/.config/nvim/plugged')
 else
 	call plug#begin('~/.vim/plugged')
 endif
-Plug 'nathanaelkane/vim-indent-guides'  " Indent 선 화면 출력
-Plug 'ctrlpvim/ctrlp.vim'
-Plug 'scrooloose/nerdcommenter'    " 주석
+"Plug 'nathanaelkane/vim-indent-guides'  " Indent 선 화면 출력
+"Plug 'ctrlpvim/ctrlp.vim'
+"Plug 'scrooloose/nerdcommenter'    " 주석
 Plug 'scrooloose/nerdtree'         " File 네비게이터
-Plug 'majutsushi/tagbar'           " 소스 네비게이터
-Plug 'airblade/vim-gitgutter'      " git 소스 수정 내용 화면 프린트
-Plug 'tpope/vim-fugitive'          " git 
-Plug 'airblade/vim-rooter'         " project root 디렉토리
-Plug 'blueyed/vim-diminactive'     " 비활성화 창 어둡게
-Plug 'nvie/vim-flake8' ,{ 'for': 'python' }
-Plug 'ekalinin/dockerfile.vim'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-Plug 'mileszs/ack.vim'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'parkr/vim-jekyll'
-Plug 'mhinz/vim-startify'
-Plug 'itspriddle/vim-marked'       " Mac Marked2 앱 열기
-Plug 'fisadev/vim-isort'
+"Plug 'majutsushi/tagbar'           " 소스 네비게이터
+"Plug 'airblade/vim-gitgutter'      " git 소스 수정 내용 화면 프린트
+"Plug 'tpope/vim-fugitive'          " git
+"Plug 'airblade/vim-rooter'         " project root 디렉토리
+"Plug 'blueyed/vim-diminactive'     " 비활성화 창 어둡게
+"Plug 'nvie/vim-flake8' ,{ 'for': 'python' }
+"Plug 'ekalinin/dockerfile.vim'
+"Plug 'vim-airline/vim-airline'
+"Plug 'vim-airline/vim-airline-themes'
+"Plug 'mileszs/ack.vim'
+"Plug 'neoclide/coc.nvim', {'branch': 'release'}
+"Plug 'parkr/vim-jekyll'
+"Plug 'mhinz/vim-startify'
+"Plug 'itspriddle/vim-marked'       " Mac Marked2 앱 열기
+"Plug 'fisadev/vim-isort'
 "Plug 'python-mode/python-mode', { 'for': 'python', 'branch': 'develop' }
 call plug#end()
 
