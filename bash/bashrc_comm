@@ -1,15 +1,10 @@
 # =====================================================================================
 #           Filename    : .bashrc_comm
-#           Description : COMMON bash shell 설정 파일  
-#			Last Modification Day: 2016/01/26 JKLEE
+#           Description : COMMON bash shell 설정 파일
+#			Last Modification Day: 2020/04/28 JKLEE
 # =====================================================================================
 
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib
-
-#LANG=ko_KR.EUC_KR
-#export LANG
-#export LC_ALL=ko_KR.eucKR
-#export LANG=ko_KR.eucKR
 export LANG=ko_KR.UTF-8
 export TERM=xterm-color
 
@@ -20,6 +15,7 @@ export HISTTIMEFORMAT="%Y-%m-%d %H:%M:%S : "
 
 export CLICOLOR=1
 export LSCOLORS=GxFxCxDxBxegedabagaced
+export GREP_OPTIONS='--color=auto'
 
 #=====================================
 # Alias Setting
@@ -34,21 +30,18 @@ alias cgrep='find . -type f -name "*.[ch]"|grep -v tags |grep -v .svn|xargs grep
 alias cpgrep='find . -type f -regex ".*\.[ch]\(pp\)?$"|grep -v tags |grep -v .svn|xargs grep -n --color=auto $1'
 alias pgrep='find . -type f -name "*.py"|grep -v .svn|xargs grep -n --color=auto $1'
 
-alias bashrc_comm='vim ~/.jklee/env/Bash/bashrc_comm'
-alias vim='vim -u ~/.jklee/env/vim/vimrc'
-alias vimrc='vim ~/.jklee/env/vim/vimrc'
 alias run='. ~/.bashrc'
 alias findcore='find ~/ -name "core*"'
 alias ff='find ./ -name '
 alias mm='make clean; make'
 
 #=====================================
-# Terminal Vi Key Mapping 
+# Terminal Vi Key Mapping
 #=====================================
 set -o vi
 
 #=====================================
-# Color Setting  
+# Color Setting
 #=====================================
 case "$TERM" in
     xterm-color) color_prompt=yes;;
@@ -66,7 +59,7 @@ export LESS_TERMCAP_ue=$'\E[0m' # end underline
 export LESS_TERMCAP_us=$'\E[01;32m' # begin underline
 
 #=====================================
-# 공지 사항  
+# 공지 사항
 #=====================================
 #cat ~/.noti
 export PLATFORM=`uname`
@@ -77,13 +70,17 @@ elif    [ "$PLATFORM" = 'SunOS' ]; then
 	echo "SunOS Not Setting File"
 elif    [ "$PLATFORM" = 'Darwin' ]; then
 	source ~/.jklee/env/Bash/bashrc_mac
-elif    [ "$PLATFORM" = 'CYGWIN_NT-10.0' ]; then               
+elif    [ "$PLATFORM" = 'CYGWIN_NT-10.0' ]; then
 	# Cygwin
 	source /cygdrive/c/Users/jklee/Dropbox/ENV/Bash/bashrc_cygwin
-elif    [ "$PLATFORM" = 'MINGW64_NT-6.1' ]; then               
-	# Windows 
+elif    [ "$PLATFORM" = 'MINGW64_NT-6.1' ]; then
+	# Windows
+	echo "==========[Windows]==========="
 	source ~/.jklee/env/Bash/bashrc_win
 	echo "WINDOWS"
-else 
+elif    [ "$PLATFORM" = 'MSYS_NT-10.0-18363' ]; then
+	echo "==========[Windows-MSYS2]==========="
+	source ~/.jklee/env/Bash/bashrc_msys
+else
 	source ~/.jklee/env/Bash/bashrc_win
 fi
