@@ -1,0 +1,38 @@
+# =====================================================================================
+#           Filename    : .bashrc_mac
+#           Description : MAC bash shell 설정 파일  
+#			Last Modification Day: 2018/03/29 JKLEE
+# =====================================================================================
+
+PATH=/usr/local/bin:.:~/bin:/usr/local/bin:/usr/local/ssl/bin:/sbin:/usr/sbin:/bin:/usr/bin:/usr/local/bin:/usr/ccs/bin:/usr/ucb:/etc:/usr/etc:
+PATH=$PATH:/usr/local/sbin:/Users/jklee/Dropbox/env/SSH:~/.jklee/env:~/.ssh:/Library/Frameworks/Python.framework/Versions/3.6/bin
+PATH=$PATH:/Users/jklee/Source:/Users/jklee/Source/isRead/.isRead_env:/Users/jklee/Source/isRead/.isRead_env/bin
+export PATH=$PATH
+
+export PS1="[\033[01;32m\]Mac\033[00m\]|\033[01;34m\]\w\033[00m\]] "
+
+#=====================================
+# Alias Setting
+#=====================================
+alias ls='ls -ltGF'
+alias which='/usr/bin/which'
+alias bashrc='vim ~/.jklee/env/Bash/bashrc_mac'
+
+
+alias isread='cd /Users/jklee/Source/isRead'
+alias cdblog='cd /Users/jklee/Dropbox/BLOG'
+alias blog='cd /Users/jklee/Dropbox/BLOG'
+alias rcsr='cd /Users/jklee/Dropbox/JOB/Project/2017_rcsr'
+alias cdrcsr='cd /Users/jklee/Dropbox/JOB/Project/2017_rcsr'
+alias down='cd ~/Downloads'
+alias cddown='cd ~/Downloads'
+alias cdsrc='cd  ~/Source'
+alias cdenv='cd  ~/.jklee/env'
+alias cdsync='cd /Users/jklee/sync_file'
+
+#=====================================
+# NOCS Application Env Setting  
+#=====================================
+alias cdndm='cd /Users/jklee/Source/nocs/src/online/NDiameter'      # 네이블 RCS IM 
+alias cddm='cd /Users/jklee/Source/ndiameter/DM.R291'               # 르완다 DM  
+export OCS_HOME=/Users/jklee/Source/nocs

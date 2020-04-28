@@ -1,3 +1,14 @@
+# Linux 장비 설정
+.jklee 로 디렉토리 만들고 git으로 설정 파일 받아서 iterm 에서 로그인시 트리거 걸어놓고 사용.
+
+- 기존 사용자는 영향이 없어야 한다.
+
+```
+mkdir -p ~/.jklee
+cd ~/.jklee
+
+```
+
 # Windows git bash Setting
 bash 를 관리자 모드로 실행
 ## git bash 에서 link 생성 되도록 설정
