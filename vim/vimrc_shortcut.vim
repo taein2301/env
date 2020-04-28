@@ -1,8 +1,8 @@
 "======================================================================
 " 단축키 설정 Part1 : F1 ~ F12 : 정리중
 "======================================================================
-inoremap <silent> <F3>  ![img](/Users/jklee/Dropbox/BLOG/assets/images/
-inoremap <silent> <F6>  ![img](/assets/images/
+inoremap <silent> <F2>  ![img](/Users/jklee/Dropbox/memo/img/ )
+inoremap <silent> <F3>  ![img](/assets/images/ )
 
 "======================================================================
 " 단축키 설정 Part2 : Map 을 이용한 단축키
@@ -109,7 +109,7 @@ map <silent> <leader>g :call ToggleCB()<cr>
 map <Leader>n :call ToggleNu()<CR>
 map <Leader>pt :call TogglePaste()<CR>
 map <silent> <Leader>P :!/Users/jklee/Dropbox/TOOL/blog_deploy.sh<CR><CR>
-
+"JEKYLL_TITLE""JEKYLL_TITLE"
 " 날짜관련
 inoremap <Leader>a # <ESC>"=strftime("%Y-%m-%d")<CR>PA<CR>
 nnoremap <Leader>a A# <ESC>"=strftime("%Y-%m-%d")<CR>PA<CR>
@@ -169,6 +169,7 @@ inoremap <C-l>   <ESC>:tabclose<CR>
 "======================================================================
 nnoremap <silent> <Leader>e :call NERDTreeToggleInCurDir()<cr>
 nnoremap <silent> <F5> :TagbarToggle<CR>
+nnoremap <silent> <Leader>w :Jpost! <c-r>=strftime("%Y/%m/%d %H:%M")<CR><CR>
 
 "======================================================================
 " 단축키 설정 Part3 : 축약
@@ -196,3 +197,4 @@ iab jklog. g_pclsFileLog->Write(LOG_CRITICAL, "JKLEE_LOG [%s][%s]",__FILE__,__LI
 iab logd.  g_cLog->LogMsg(AZI_INFO, "[%s][%s][%d] ",__FILE__,__func__,__LINE__);
 iab logc.  g_cLog->LogMsg(AZI_ERR, "[%s][%s][%d] ",__FILE__,__func__,__LINE__);
 iab --.    ----------------------------------------------------------------------------------------------------
+
