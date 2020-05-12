@@ -125,6 +125,10 @@ elseif has("gui_macvim")
 	source ~/.vim/vimrc_shortcut.vim
 	source ~/.vim/vimrc_filetype.vim
 	source ~/.vim/vimrc_mac.vim
+elseif has("macunix")
+	source ~/.vim/vimrc_plugin.vim
+	source ~/.vim/vimrc_shortcut.vim
+	source ~/.vim/vimrc_filetype.vim
 else
 	"======================================================================
 	" For Linux
