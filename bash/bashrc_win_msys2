@@ -6,9 +6,6 @@
 
 export MSYS=winsymlinks:nativestrict
 
-# Enable tab completion
-source /c/Users/jklee/Dropbox/ENV/git-completion.bash
-
 export PATH=/c/Users/jklee/bin:/usr/local/bin:/usr/bin:/bin:/opt/bin:/c/WINDOWS/system32:/c/WINDOWS:/c/WINDOWS/System32/Wbem:/c/WINDOWS/System32/WindowsPowerShell/v1.0:/c/WINDOWS/System32/OpenSSH:/c/Program\ Files/Git/cmd:
 
 #=====================================

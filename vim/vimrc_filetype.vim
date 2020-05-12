@@ -39,4 +39,5 @@ autocmd BufWritePre <buffer> :%s/\s\+$//e
 "=====================================================================
 autocmd BufNewFile,BufRead *.sc set filetype=cpp
 autocmd BufNewFile,BufRead *.pc set filetype=cpp
+autocmd BufNewFile,BufRead *.gc set filetype=cpp
 

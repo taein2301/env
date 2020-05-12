@@ -23,9 +23,9 @@ set backspace=indent,eol,start			" backspace로 라인끝과 처음 자동들여
 
 set clipboard+=unnamed					" use the clipboards of vim and win
 set clipboard+=unnamedplus  			" better support system clipboard
-
+"
 set go+=a								" Visual selection automatically copied to the clipboard
-"set sel=inclusive						" 비주얼 모드에서의 동작 설정
+set sel=exclusive						" 비주얼 모드에서의 동작 설정
 set showcmd
 set cc=200    				  " 200 번째 글자 위치에 선 넣기
 set noimd   				  " ESC 로 모드 변환시 한글-> 영문으로 변환
@@ -35,11 +35,20 @@ set imsearch=-1               " starts search with english keymap
 set autochdir                 " vim pwd 를 현재 파일 위치로 자동 이동
 set scrolloff=5               " 스크롤 할때 위아래 줄 유지, 화살표 아래로 내리다 보면 아래에서 5줄 유지한 상황에서 스크롤 됨 "
 
-set mouse=a
+" 줄 번호 표시 너비 설정
+set nuw=3
 
 set belloff=all
 
+"set mouse=a
+
 let mapleader = ","
+
+" 파일 탐색기 설정
+let g:explVertical=1
+let g:explSplitRight=1
+let g:explStartRight=1
+let g:explWinSize=20
 "======================================================================
 
 "======================================================================
@@ -73,6 +82,8 @@ set smartindent							" 좀더 똑똑한 들여쓰기를 위한 옵션이다.
 set hlsearch							" / ? 명령 등으로 찾은 문자열을 하일라이트 해준다.
 set incsearch 							" 점진적으로 찾기
 set ignorecase                          " 대소문자 무시
+set nows                                " 검색시 파일 끝에서 처음으로 되돌리기 안함
+set scs 								" 똑똑한 대소문자 구별 기능 사용
 "======================================================================
 
 "======================================================================
@@ -93,7 +104,7 @@ autocmd BufReadPost *
 " Extern vimrc
 "======================================================================
 if has("win32")
-	source ~/vimfiles/vimrc_plugin.vim
+	source ~/vimfiles/vimrc_plugin_win.vim
 	source ~/vimfiles/vimrc_shortcut.vim
 	source ~/vimfiles/vimrc_filetype.vim
 	source ~/vimfiles/vimrc_win.vim

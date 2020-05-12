@@ -69,18 +69,18 @@ if      [ "$PLATFORM" = 'Linux' ]; then
 elif    [ "$PLATFORM" = 'SunOS' ]; then
 	echo "SunOS Not Setting File"
 elif    [ "$PLATFORM" = 'Darwin' ]; then
-	source ~/.jklee/env/Bash/bashrc_mac
+	echo "Mac is zsh"
 elif    [ "$PLATFORM" = 'CYGWIN_NT-10.0' ]; then
 	# Cygwin
 	source /cygdrive/c/Users/jklee/Dropbox/ENV/Bash/bashrc_cygwin
 elif    [ "$PLATFORM" = 'MINGW64_NT-6.1' ]; then
 	# Windows
 	echo "==========[Windows]==========="
-	source ~/.jklee/env/Bash/bashrc_win
+	source ~/.jklee/env/Bash/bashrc_win_git
 	echo "WINDOWS"
 elif    [ "$PLATFORM" = 'MSYS_NT-10.0-18363' ]; then
 	echo "==========[Windows-MSYS2]==========="
-	source ~/.jklee/env/Bash/bashrc_msys
+	source ~/.jklee/env/Bash/bashrc_win_msys
 else
-	source ~/.jklee/env/Bash/bashrc_win
+	source ~/.jklee/env/Bash/bashrc_win_git
 fi

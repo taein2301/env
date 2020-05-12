@@ -11,6 +11,7 @@ set guioptions-=T  "remove toolbar
 set guioptions-=r  "remove right-hand scroll bar
 set guioptions-=L  "remove left-hand scroll bar
 
+set gfn=JetBrains\ Mono:h13
 
 " 마우스 우클릭 붙여넣기
 set mousemodel=extend
@@ -19,10 +20,10 @@ map <RightMouse> <MiddleMouse>
 imap <C-S> <ESC>:w<CR>
 map <C-S> :w<CR>
 
-" vmap <C-c> "+yi
-" vmap <C-x> "+c
-" vmap <C-v> c<ESC>"+p
-" imap <C-v> <ESC>"+pa
+vmap <C-c> "+yi
+vmap <C-x> "+c
+vmap <C-v> c<ESC>"+p
+imap <C-v> <ESC>"+pa
 map <A-w> :q!<CR>
 
 

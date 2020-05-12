@@ -4,7 +4,7 @@
 "==============================================================
 
 if has("win32")
-	call plug#begin('~/.vim/plugged')
+	call plug#begin('~/vimfiles/plugged')
 elseif has("nvim")
 	call plug#begin('~/.config/nvim/plugged')
 else
@@ -30,7 +30,7 @@ Plug 'mhinz/vim-startify'
 "Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'parkr/vim-jekyll'
 "Plug 'mhinz/vim-startify'
-"Plug 'itspriddle/vim-marked'       " Mac Marked2 앱 열기
+Plug 'itspriddle/vim-marked'       " Mac Marked2 앱 열기
 "Plug 'fisadev/vim-isort'
 "Plug 'python-mode/python-mode', { 'for': 'python', 'branch': 'develop' }
 call plug#end()
@@ -236,7 +236,7 @@ let g:vimwiki_list = [
 let maplocalleader = "\\"
 
 " vimwiki의 conceallevel 을 끄는 쪽이 좋다
-let g:vimwiki_conceallevel = 0
+let g:vimwiki_conceallevel = 1
 
 " wiki 경로 아닌 마크다운 파일에 vimwiki 기능 영향 안받도록 설정  
 let g:vimwiki_global_ext = 0
@@ -256,3 +256,7 @@ nnoremap <F4> :execute "VWS /" . expand("<cword>") . "/" <Bar> :lopen<CR>
 nnoremap <S-F4> :execute "VWB" <Bar> :lopen<CR>
 
 
+"======================================================================
+" Plug 'itspriddle/vim-marked'       " Mac Marked2 앱 열기
+let g:marked_filetypes = ["markdown", "mkd", "ghmarkdown", "vimwiki"]
+nmap <LocalLeader>e :MarkedToggle<CR>

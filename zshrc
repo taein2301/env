@@ -65,7 +65,7 @@ alias til='cd /Users/jklee/Dropbox/TIL'
 alias cdpyenv='/Users/jklee/Source/python_env/pyenv/versions'
 alias cdgo='/Users/jklee/Dropbox/Source/go-Project'
 alias cdpoc='/Users/jklee/Dropbox/Source/LGU_POC/nocs/src'
-
+alias cdtool='/Users/jklee/Dropbox/TOOL'
 
 #=====================================
 # Python env Setting 2019/04/22
