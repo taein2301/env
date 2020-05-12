@@ -38,7 +38,10 @@ set scrolloff=5               " 스크롤 할때 위아래 줄 유지, 화살표
 " 줄 번호 표시 너비 설정
 set nuw=3
 
-set belloff=all
+
+if v:version > 800
+	set belloff=all
+endif
 
 "set mouse=a
 
@@ -94,10 +97,12 @@ set tags=./tags,../../tags,tags,../tags,../../libsrc/tags
 
 "======================================================================
 " 다음 파일 열때 닫았던 위치에 열림
-autocmd BufReadPost *
-			\ if line("'\"") > 0 && line("'\"") <= line("$") |
-			\ exe "norm g`\"" |
-			\ endif
+if v:version > 800
+	autocmd BufReadPost *
+	\ if line("'\"") > 0 && line("'\"") <= line("$") |
+	\ exe "norm g`\"" |
+	\ endif
+endif
 "======================================================================
 
 "======================================================================
@@ -121,9 +126,12 @@ elseif has("gui_macvim")
 	source ~/.vim/vimrc_filetype.vim
 	source ~/.vim/vimrc_mac.vim
 else
-	source ~/.vim/vimrc_plugin.vim
-	source ~/.vim/vimrc_shortcut.vim
-	source ~/.vim/vimrc_filetype.vim
+	"======================================================================
+	" For Linux
+	"======================================================================
+	source $JKLEE_HOME/env/vim/vimrc_plugin_linux.vim
+	source $JKLEE_HOME/env/vim/vimrc_shortcut.vim
+	source $JKLEE_HOME/env/vim/vimrc_filetype.vim
 endif
 
 "======================================================================

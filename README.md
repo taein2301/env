@@ -3,6 +3,10 @@
 
 - 기존 사용자는 영향이 없어야 한다.
 
+setting $JKLEE_HOME
+
+ln -s $JKLEE_HOME/env/vim/colors ~/.vim/colors
+
 ```
 mkdir -p ~/.jklee
 cd ~/.jklee

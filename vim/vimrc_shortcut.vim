@@ -135,7 +135,9 @@ map <Leader># :buffer 3<CR>
 map <Leader>$ :buffer 4<CR>
 map <Leader>% :buffer 5<CR>
 
+if v:version > 800
 map <Leader>t :!rm -rf tags \| ctags -a *.c \|ctags -a *.cpp \| ctags -a *.sc \| ctags -a *.pc \| ctags -a *.hpp
+endif
 map <Leader>b :make clean ; make <CR>:copen<CR><CR>
 map <Leader>r :! ./run.sh<CR>
 

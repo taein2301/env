@@ -9,7 +9,7 @@ export PATH
 
 #export PS1="[\033[01;30m\u\033[00m@$MY_SYS_NAME|\w] "
 #PS1='[${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u\[\033[01;34m\] \w \[\033[00m\]] '
-export PS1="[JK:${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u\[\033[01;34m\] \w \[\033[00m\]]"
+#export PS1="[JK:${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u\[\033[01;34m\] \w \[\033[00m\]]"
 
 # For Git remote PUSH 
 unset SSH_ASKPASS
@@ -17,11 +17,11 @@ unset SSH_ASKPASS
 #=====================================
 # Alias Setting
 #=====================================
-alias vim='vim -u ~/.jklee/env/vim/vimrc'
-alias vimrc='vim ~/.jklee/env/vim/vimrc'
+alias vim='vim -u $JKLEE_HOME/env/vim/vimrc'
+alias vimrc='vim $JKLEE_HOME/env/vim/vimrc'
 alias ls='ls --color=tty'
 alias which='alias | /usr/bin/which --tty-only --read-alias --show-dot --show-tilde'
-alias bashrc='vim ~/.jklee/env/Bash/bashrc_linux'
+alias bashrc='vim $JKLEE_HOME/env/Bash/bashrc_linux'
 alias time_sync='/usr/bin/rdate -s time.bora.net'
 
 #=====================================

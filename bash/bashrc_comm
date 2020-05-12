@@ -5,8 +5,14 @@
 # =====================================================================================
 
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib
-export LANG=ko_KR.UTF-8
 export TERM=xterm-color
+
+export PLATFORM=`uname`
+if      [ "$PLATFORM" = 'Linux' ]; then
+	export LANG=C
+else
+	export LANG=ko_KR.UTF-8
+fi
 
 HISTSIZE=1000
 HISTFILESIZE=2000
@@ -62,10 +68,17 @@ export LESS_TERMCAP_us=$'\E[01;32m' # begin underline
 # 공지 사항
 #=====================================
 #cat ~/.noti
-export PLATFORM=`uname`
 
 if      [ "$PLATFORM" = 'Linux' ]; then
-	source ~/.jklee/env/Bash/bashrc_linux
+
+	if      [ "$USER" = 'nocs05' ]; then
+		export JKLEE_HOME='/NOCS/NOCS05/user/jklee/'
+		source /NOCS/NOCS05/user/jklee/env/bash/bashrc_linux
+	else
+		export JKLEE_HOME='~/.jklee/'
+		source ~/.jklee/env/bash/bashrc_linux
+	fi
+
 elif    [ "$PLATFORM" = 'SunOS' ]; then
 	echo "SunOS Not Setting File"
 elif    [ "$PLATFORM" = 'Darwin' ]; then
