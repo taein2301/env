@@ -133,6 +133,7 @@ else
 	"======================================================================
 	" For Linux
 	"======================================================================
+	" JKLEE_HOME 은 bashrc 에서 설정
 	source $JKLEE_HOME/env/vim/vimrc_plugin_linux.vim
 	source $JKLEE_HOME/env/vim/vimrc_shortcut.vim
 	source $JKLEE_HOME/env/vim/vimrc_filetype.vim
