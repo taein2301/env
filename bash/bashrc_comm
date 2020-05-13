@@ -7,10 +7,11 @@
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib
 export TERM=xterm-color
 
-export PLATFORM=`uname`
-if      [ "$PLATFORM" = 'Linux' ]; then
+if      [ "$USER" = 'nocs05' ]; then
+	export JKLEE_HOME='/NOCS/NOCS05/user/jklee/'
 	export LANG=C
 else
+	export JKLEE_HOME='~/.jklee/'
 	export LANG=ko_KR.UTF-8
 fi
 
@@ -50,7 +51,7 @@ set -o vi
 # Color Setting
 #=====================================
 case "$TERM" in
-    xterm-color) color_prompt=yes;;
+xterm-color) color_prompt=yes;;
 esac
 
 #=====================================
@@ -69,31 +70,22 @@ export LESS_TERMCAP_us=$'\E[01;32m' # begin underline
 #=====================================
 #cat ~/.noti
 
+export PLATFORM=`uname`
 if      [ "$PLATFORM" = 'Linux' ]; then
-
-	if      [ "$USER" = 'nocs05' ]; then
-		export JKLEE_HOME='/NOCS/NOCS05/user/jklee/'
-		source /NOCS/NOCS05/user/jklee/env/bash/bashrc_linux
-	else
-		export JKLEE_HOME='~/.jklee/'
-		source ~/.jklee/env/bash/bashrc_linux
-	fi
-
-elif    [ "$PLATFORM" = 'SunOS' ]; then
-	echo "SunOS Not Setting File"
+	source $JKLEE_HOME/env/bash/bashrc_linux
 elif    [ "$PLATFORM" = 'Darwin' ]; then
-	echo "Mac is zsh"
+echo "Mac is zsh"
 elif    [ "$PLATFORM" = 'CYGWIN_NT-10.0' ]; then
-	# Cygwin
-	source /cygdrive/c/Users/jklee/Dropbox/ENV/Bash/bashrc_cygwin
+# Cygwin
+source /cygdrive/c/Users/jklee/Dropbox/ENV/Bash/bashrc_cygwin
 elif    [ "$PLATFORM" = 'MINGW64_NT-6.1' ]; then
-	# Windows
-	echo "==========[Windows]==========="
-	source ~/.jklee/env/Bash/bashrc_win_git
-	echo "WINDOWS"
+# Windows
+source ~/.jklee/env/Bash/bashrc_win_git
+echo "WINDOWS"
 elif    [ "$PLATFORM" = 'MSYS_NT-10.0-18363' ]; then
-	echo "==========[Windows-MSYS2]==========="
-	source ~/.jklee/env/Bash/bashrc_win_msys
+source ~/.jklee/env/Bash/bashrc_win_msys
+elif    [ "$PLATFORM" = 'SunOS' ]; then
+echo "SunOS Not Setting File"
 else
-	source ~/.jklee/env/Bash/bashrc_win_git
+source ~/.jklee/env/Bash/bashrc_win_git
 fi

@@ -98,10 +98,7 @@ set tags=./tags,../../tags,tags,../tags,../../libsrc/tags
 "======================================================================
 " 다음 파일 열때 닫았던 위치에 열림
 if v:version > 800
-	autocmd BufReadPost *
-	\ if line("'\"") > 0 && line("'\"") <= line("$") |
-	\ exe "norm g`\"" |
-	\ endif
+autocmd BufReadPost *  if line("'\"") > 0 && line("'\"") <= line("$") |  exe "norm g`\"" | endif
 endif
 "======================================================================
 
