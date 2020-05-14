@@ -8,8 +8,8 @@ Plug 'nathanaelkane/vim-indent-guides'  " Indent 선 화면 출력
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
-Plug 'vimwiki/vimwiki', { 'branch': 'dev' }
-Plug 'mhinz/vim-startify'
+Plug 'vimwiki/vimwiki', { 'branch': 'dev' }  " Vimwiki
+Plug 'mhinz/vim-startify'                    " Vim 첫화면 
 Plug 'parkr/vim-jekyll'
 Plug 'itspriddle/vim-marked'       " Mac Marked2 앱 열기
 "Plug 'ctrlpvim/ctrlp.vim'

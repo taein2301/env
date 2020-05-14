@@ -11,7 +11,7 @@ set guioptions-=T  "remove toolbar
 set guioptions-=r  "remove right-hand scroll bar
 set guioptions-=L  "remove left-hand scroll bar
 
-set gfn=JetBrains\ Mono:h13
+set guifont=JetBrains\ Mono:h13
 
 " 마우스 우클릭 붙여넣기
 set mousemodel=extend
@@ -63,14 +63,10 @@ inoremap <C-Z> <C-O>u
 noremap <C-Y> <C-R>
 inoremap <C-Y> <C-O><C-R>
 
-
-"==============================================================
-" vim_plugin_win.vim					          by JKLEE
-"                                                 2020-05-12 
-"==============================================================
-
 call plug#begin('~/vimfiles/plugged')
-Plug 'scrooloose/nerdtree'              " File 네비게이터
+Plug 'scrooloose/nerdtree'              		" File 네비게이터
+Plug 'vimwiki/vimwiki', { 'branch': 'dev' }		" Vimwiki
+Plug 'mhinz/vim-startify'                    	" Vim 첫화면 
 call plug#end()
 "======================================================================
 " Plug 'scrooloose/nerdtree'         " File 네비게이터
@@ -101,6 +97,39 @@ endfunction
 "autocmd StdinReadPre * let s:std_in=1
 "autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 "======================================================================
+" Plug 'vimwiki/vimwiki', { 'branch': 'dev' }
+
+let g:vimwiki_list = [
+    \{
+    \   'path': 'C:\Dropbox\memo',
+    \   'ext' : '.md',
+    \   'diary_rel_path': '.',
+    \},
+\]
+
+let maplocalleader = "\\"
+
+" vimwiki의 conceallevel 을 끄는 쪽이 좋다
+let g:vimwiki_conceallevel = 1
+
+" wiki 경로 아닌 마크다운 파일에 vimwiki 기능 영향 안받도록 설정  
+let g:vimwiki_global_ext = 0
+
+
+" 자주 사용하는 vimwiki 명령어에 단축키를 취향대로 매핑해둔다
+command! WikiIndex :VimwikiIndex
+nmap <LocalLeader>ww <Plug>VimwikiIndex
+nmap <LocalLeader>wi <Plug>VimwikiDiaryIndex
+nmap <LocalLeader>w<LocalLeader>w <Plug>VimwikiMakeDiaryNote
+nmap <LocalLeader>wt :VimwikiTable<CR>
+
+" F4 키를 누르면 커서가 놓인 단어를 위키에서 검색한다.
+nnoremap <F4> :execute "VWS /" . expand("<cword>") . "/" <Bar> :lopen<CR>
+
+" Shift F4 키를 누르면 현재 문서를 링크한 모든 문서를 검색한다
+nnoremap <S-F4> :execute "VWB" <Bar> :lopen<CR>
+"======================================================================
+
 
 "======================================================================
 " End of File
