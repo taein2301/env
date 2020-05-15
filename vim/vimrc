@@ -46,6 +46,7 @@ endif
 "set mouse=a
 
 let mapleader = ","
+let maplocalleader = "\\"
 
 " 파일 탐색기 설정
 let g:explVertical=1

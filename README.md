@@ -1,7 +1,17 @@
-# Linux 장비 설정
+# JKLEE 환경 설정
+
+- Mac / Linux / Windows 의 bash / zsh / vim 설정
+- Linux 는 기존 사용자는 영향이 없어야 한다.
+
+----------------------------------------------------------------------------------------------------
+## MAC
+
+## Linux
 .jklee 로 디렉토리 만들고 git으로 설정 파일 받아서 iterm 에서 로그인시 트리거 걸어놓고 사용.
 
-- 기존 사용자는 영향이 없어야 한다.
+## Windows
+
+
 
 setting $JKLEE_HOME
 
@@ -12,7 +22,7 @@ mkdir -p ~/.jklee
 cd ~/.jklee
 git clone https://github.com/taein2301/env.git ./
 ```
-# MAC Setting
+
 ## shell
 cd /Users/jklee/Dropbox/ENV
 
@@ -45,4 +55,4 @@ ln -s /c/Users/jklee/Dropbox/ENV/vim ~/.vim
 ln -s /c/Users/jklee/Dropbox/ENV/vim ~/vimfiles
 ln -s /c/Users/jklee/Dropbox/ENV/vim/vimrc ~/_vimrc
 
-Last Modify : `2020-04-28`
+Last Modify : `2020-05-14`

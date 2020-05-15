@@ -1,7 +1,10 @@
 "======================================================================
 " MAC Vim 설정
 "======================================================================
-call plug#begin('~/.vim/plugged')
+"======================================================================
+"" PlugIn Setting Start
+"======================================================================
+call plug#begin('~/.vim/plugged_mac')
 Plug 'blueyed/vim-diminactive'     		" 비활성화 창 어둡게
 Plug 'scrooloose/nerdtree'              " File 네비게이터
 Plug 'nathanaelkane/vim-indent-guides'  " Indent 선 화면 출력
@@ -9,7 +12,7 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'vimwiki/vimwiki', { 'branch': 'dev' }  " Vimwiki
-Plug 'mhinz/vim-startify'                    " Vim 첫화면 
+Plug 'mhinz/vim-startify'                    " Vim 첫화면
 Plug 'parkr/vim-jekyll'
 Plug 'itspriddle/vim-marked'       " Mac Marked2 앱 열기
 "Plug 'ctrlpvim/ctrlp.vim'
@@ -230,7 +233,7 @@ let maplocalleader = "\\"
 " vimwiki의 conceallevel 을 끄는 쪽이 좋다
 let g:vimwiki_conceallevel = 1
 
-" wiki 경로 아닌 마크다운 파일에 vimwiki 기능 영향 안받도록 설정  
+" wiki 경로 아닌 마크다운 파일에 vimwiki 기능 영향 안받도록 설정
 let g:vimwiki_global_ext = 0
 
 
@@ -247,19 +250,35 @@ nnoremap <F4> :execute "VWS /" . expand("<cword>") . "/" <Bar> :lopen<CR>
 " Shift F4 키를 누르면 현재 문서를 링크한 모든 문서를 검색한다
 nnoremap <S-F4> :execute "VWB" <Bar> :lopen<CR>
 
-
 "======================================================================
 " Plug 'itspriddle/vim-marked'       " Mac Marked2 앱 열기
 let g:marked_filetypes = ["markdown", "mkd", "ghmarkdown", "vimwiki"]
 nmap <LocalLeader>e :MarkedToggle<CR>
 
+"======================================================================
+" Plug 'parkr/vim-jekyll'
+let g:jekyll_post_dirs = ['_posts', 'jklee/Dropbox/BLOG/_posts']
+let g:jekyll_post_extension = '.md'
+let g:jekyll_post_template =  [
+			\ '---',
+			\ 'layout: post',
+			\ 'title: ',
+			\ 'date: "JEKYLL_DATE"',
+			\ '---',
+			\ '']
+let g:jekyll_site_dir = '_site'
 
 "======================================================================
-" For MacVim ( GUI )  
+"" PlugIn Setting End
+"======================================================================
+
+
+"======================================================================
+" For MacVim ( GUI )
 "======================================================================
 if has("gui_macvim")
 	set guifont=Monaco:h15
-endif 
+endif
 "======================================================================
 " End of File
 "======================================================================

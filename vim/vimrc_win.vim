@@ -11,7 +11,7 @@ set guioptions-=T  "remove toolbar
 set guioptions-=r  "remove right-hand scroll bar
 set guioptions-=L  "remove left-hand scroll bar
 
-set guifont=JetBrains\ Mono:h13
+set guifont=JetBrains\ Mono:h11
 
 " 마우스 우클릭 붙여넣기
 set mousemodel=extend
@@ -63,11 +63,54 @@ inoremap <C-Z> <C-O>u
 noremap <C-Y> <C-R>
 inoremap <C-Y> <C-O><C-R>
 
-call plug#begin('~/vimfiles/plugged')
-Plug 'scrooloose/nerdtree'              		" File 네비게이터
-Plug 'vimwiki/vimwiki', { 'branch': 'dev' }		" Vimwiki
-Plug 'mhinz/vim-startify'                    	" Vim 첫화면 
+"======================================================================
+"" PlugIn Setting Start
+"======================================================================
+call plug#begin('~/vimfiles/plugged_win')
+"Plug 'scrooloose/nerdtree'              		" File 네비게이터
+"Plug 'vimwiki/vimwiki', { 'branch': 'dev' }		" Vimwiki
+"Plug 'mhinz/vim-startify'                    	" Vim 첫화면
+"Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+Plug 'parkr/vim-jekyll'
 call plug#end()
+"======================================================================
+" Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+set updatetime=100
+
+" 저장할 때 자동으로 formatting 및 import
+let g:go_fmt_command = "goimports"
+let g:go_list_type = "quickfix"
+let g:go_addtags_transform = "camelcase"
+
+let g:go_autodetect_gopath = 1
+let g:go_highlight_types = 1
+let g:go_highlight_fields = 1
+let g:go_highlight_functions = 1
+let g:go_highlight_function_calls = 1
+let g:go_highlight_extra_types = 1
+let g:go_highlight_generate_tags = 1
+let g:go_highlight_operators = 1
+let g:go_auto_type_info = 1
+let g:go_auto_sameids = 1
+
+" quickfix 이동 및 open/close
+nnoremap <C-n> :cnext<CR>
+nnoremap <C-p> :cprevious<CR>
+
+" 테스트 커버리지 검사 및 색깔 표시 토글
+nnoremap <LocalLeader>c :GoCoverageToggle<CR>
+
+" 자주 쓰는 기능들
+autocmd FileType go nnoremap <Tab>b :GoBuild<CR>
+autocmd FileType go nnoremap <Tab>r :GoRun<CR>
+autocmd FileType go nnoremap <Tab><Tab>r :GoRun %<CR>
+
+autocmd FileType go nnoremap <Tab>t :GoTest<CR>
+autocmd FileType go nnoremap <Tab><Tab>t :GoTestFunc<CR>
+autocmd FileType go nnoremap <Tab>c :GoCoverageToggle<CR>
+
+
+
 "======================================================================
 " Plug 'scrooloose/nerdtree'         " File 네비게이터
 let NERDTreeWinPos = "left"
@@ -107,12 +150,11 @@ let g:vimwiki_list = [
     \},
 \]
 
-let maplocalleader = "\\"
 
 " vimwiki의 conceallevel 을 끄는 쪽이 좋다
-let g:vimwiki_conceallevel = 1
+let g:vimwiki_conceallevel = 0
 
-" wiki 경로 아닌 마크다운 파일에 vimwiki 기능 영향 안받도록 설정  
+" wiki 경로 아닌 마크다운 파일에 vimwiki 기능 영향 안받도록 설정
 let g:vimwiki_global_ext = 0
 
 
@@ -128,8 +170,23 @@ nnoremap <F4> :execute "VWS /" . expand("<cword>") . "/" <Bar> :lopen<CR>
 
 " Shift F4 키를 누르면 현재 문서를 링크한 모든 문서를 검색한다
 nnoremap <S-F4> :execute "VWB" <Bar> :lopen<CR>
-"======================================================================
 
+"======================================================================
+" Plug 'parkr/vim-jekyll'
+let g:jekyll_post_dirs = ['_posts', 'C:\Dropbox\BLOG\_posts']
+let g:jekyll_post_extension = '.md'
+let g:jekyll_post_template =  [
+			\ '---',
+			\ 'layout: post',
+			\ 'title: ',
+			\ 'date: "JEKYLL_DATE"',
+			\ '---',
+			\ '']
+let g:jekyll_site_dir = '_site'
+
+"======================================================================
+" PlugIn Setting END
+"======================================================================
 
 "======================================================================
 " End of File
