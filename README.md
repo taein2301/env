@@ -55,4 +55,10 @@ ln -s /c/Users/jklee/Dropbox/ENV/vim ~/.vim
 ln -s /c/Users/jklee/Dropbox/ENV/vim ~/vimfiles
 ln -s /c/Users/jklee/Dropbox/ENV/vim/vimrc ~/_vimrc
 
+
+# DBever
+DBeaver 설정 파일
+
 Last Modify : `2020-05-14`
+
+

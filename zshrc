@@ -28,6 +28,8 @@ source $ZSH/oh-my-zsh.sh
 #=====================================
 # Alias Setting
 #=====================================
+alias ctags="`brew --prefix`/bin/ctags"
+
 alias cls=clear
 alias h=history
 alias grep='grep --color=auto'
@@ -104,3 +106,9 @@ alias getpcap='scp root@219.250.188.124:*.pcap .'
 alias runlambdaenv='docker run -it --rm  --volume /Users/jklee/Source:/Source --volume /Users/jklee/Downloads:/Download --name lambda taein2301/lambda_dev_env'
 alias lamdaenv='docker run -it --rm  --volume /Users/jklee/Source:/Source --volume /Users/jklee/Downloads/:/Download --name lambda lambda_dev_env'
 
+#=====================================
+# NOCS_jklee Setting
+#=====================================
+export OCS_HOME=/Users/jklee/Dropbox/Source/nocs_jklee
+alias cdnocs='cd /Users/jklee/Dropbox/Source/nocs_jklee/src'
+alias cdrt='cd /Users/jklee/Dropbox/Source/nocs_jklee/src/rating/RT'

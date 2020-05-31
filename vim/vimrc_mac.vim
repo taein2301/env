@@ -15,35 +15,29 @@ Plug 'vimwiki/vimwiki', { 'branch': 'dev' }  " Vimwiki
 Plug 'mhinz/vim-startify'                    " Vim 첫화면
 Plug 'parkr/vim-jekyll'
 Plug 'itspriddle/vim-marked'       " Mac Marked2 앱 열기
-"Plug 'ctrlpvim/ctrlp.vim'
-"Plug 'scrooloose/nerdcommenter'    " 주석
-"Plug 'majutsushi/tagbar'           " 소스 네비게이터
-"Plug 'airblade/vim-gitgutter'      " git 소스 수정 내용 화면 프린트
-"Plug 'tpope/vim-fugitive'          " git
-"Plug 'airblade/vim-rooter'         " project root 디렉토리
-"Plug 'nvie/vim-flake8' ,{ 'for': 'python' }
-"Plug 'ekalinin/dockerfile.vim'
-"Plug 'mileszs/ack.vim'
-"Plug 'neoclide/coc.nvim', {'branch': 'release'}
-"Plug 'mhinz/vim-startify'
-"Plug 'fisadev/vim-isort'
+Plug 'majutsushi/tagbar'           " 소스 네비게이터
+Plug 'airblade/vim-rooter'         " project root 디렉토리
+Plug 'scrooloose/nerdcommenter'    " 주석
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'airblade/vim-gitgutter'      " git 소스 수정 내용 화면 프린트
+Plug 'tpope/vim-fugitive'          " git
+Plug 'ekalinin/dockerfile.vim'
+Plug 'mileszs/ack.vim'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'vim-scripts/a.vim'
 "Plug 'python-mode/python-mode', { 'for': 'python', 'branch': 'develop' }
 call plug#end()
 
 "======================================================================
 " Plug 'mileszs/ack.vim'
 "cnoreabbrev Ack Ack!
-"nnoremap <F8> :Ack! <cword><CR>
-nnoremap <F7> :Ack
-nnoremap <F8> :Ack <cword><CR>
+"nnoremap <F7> :Ack
+nnoremap <Leader>A :Ack!<Space><CR>
+nnoremap <Leader>q :e /Users/jklee/Dropbox/memo/Quick memo.md<CR>
 
-" :e ~/.vim/vimrc_plugin.vim
-" * [ ] Plugin 'godlygeek/tabular'
 " * [ ] Plugin 'plasticboy/vim-markdown'     " For vim-markdown
 " * [ ] Plugin 'elzr/vim-json'               " For Json
 " * [ ] Plugin '907th/vim-auto-save'         " 자동 저장
-" * [ ] Plugin 'a.vim'                       " c / cpp heder file 네비게이터
-" * [ ] Plugin 'vim-scripts/DoxygenToolkit.vim' " Plugin 'vim-syntastic/syntastic'
 "
 " * [X] Plugin 'klen/python-mode'
 " * [X] Plugin 'nvie/vim-flake8'
@@ -158,15 +152,9 @@ let g:pymode_rope_use_function_bind = '<leader>pu'
 let g:pymode_rope_move_bind = '<leader>pv'
 let g:pymode_rope_change_signature_bind = '<leader>ps'
 
-
-
 "======================================================================
 " Plug 'parkr/vim-jekyll'
-if has("win32")
-	let g:jekyll_post_dirs = ['_posts', 'C:\Users\jklee\Dropbox\BLOG\_posts']
-else
-	let g:jekyll_post_dirs = ['_posts', 'jklee/Dropbox/BLOG/_posts']
-endif
+let g:jekyll_post_dirs = ['_posts', 'jklee/Dropbox/BLOG/_posts']
 let g:jekyll_post_extension = '.md'
 let g:jekyll_post_template =  [
 			\ '---',
@@ -269,9 +257,17 @@ let g:jekyll_post_template =  [
 let g:jekyll_site_dir = '_site'
 
 "======================================================================
+"Plug 'neoclide/coc.nvim', {'branch': 'release'}
+" GoTo code navigation.
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+"======================================================================
 "" PlugIn Setting End
 "======================================================================
 
+map <silent> <Leader>P :!/Users/jklee/Dropbox/TOOL/blog_deploy.sh<CR><CR>
 
 "======================================================================
 " For MacVim ( GUI )

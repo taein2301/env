@@ -15,11 +15,12 @@ set noswapfile
 set nowb
 set cursorline                          " 현재 커서 위치를 라인으로 표시
 set ruler								" 화면 우측 하단에 현재 커서의 위치(줄,칸)를 보여준다.
-set laststatus=2
 set noexpandtab
 set title								" 타이틀바에 현재 편집중인 파일을 표시
-set ffs=unix,dos,mac					" unix dos mac 줄 변경자 모두 다 읽을 수 있도록 합니다.
+"set ffs=unix,dos,mac					" unix dos mac 줄 변경자 모두 다 읽을 수 있도록 합니다.
+set ffs=unix,mac					" unix dos mac 줄 변경자 모두 다 읽을 수 있도록 합니다.
 set backspace=indent,eol,start			" backspace로 라인끝과 처음 자동들여쓰기한 부분을 지날수 있음
+set history=1000
 
 set clipboard+=unnamed					" use the clipboards of vim and win
 set clipboard+=unnamedplus  			" better support system clipboard
@@ -35,10 +36,12 @@ set imsearch=-1               " starts search with english keymap
 set autochdir                 " vim pwd 를 현재 파일 위치로 자동 이동
 set scrolloff=5               " 스크롤 할때 위아래 줄 유지, 화살표 아래로 내리다 보면 아래에서 5줄 유지한 상황에서 스크롤 됨 "
 
+
+" The file has been changed since reading it > 메시지가 자꾸 나와서
+set autoread
 " 줄 번호 표시 너비 설정
 set nuw=3
-
-
+"
 if v:version > 800
 	set belloff=all
 endif
@@ -93,7 +96,7 @@ set scs 								" 똑똑한 대소문자 구별 기능 사용
 "======================================================================
 " Path / Tag
 set path=./,~/,/usr/include,../../include,../include " header 파일 찾을 디렉토리
-set tags=./tags,../../tags,tags,../tags,../../libsrc/tags
+set tags=./tags,../../tags,tags,../tags,../../libsrc/tags,/Users/jklee/Dropbox/Source/nocs_jklee/tags
 "======================================================================
 
 "======================================================================
@@ -129,15 +132,6 @@ autocmd FileType python map <leader>r <Esc>:w<CR>:!clear;python3 %<CR>
 autocmd BufNewFile *.py 0r ~/.vim/syntax/skeleton_python | let IndentStyle="python"
 autocmd FileType python let python_highlight_all = 1
 autocmd BufWritePre <buffer> :%s/\s\+$//e
-"python with virtualenv support
-" py << EOF
-" import os
-" import sys
-" if 'VIRTUAL_ENV' in os.environ:
-" project_base_dir = os.environ['VIRTUAL_ENV']
-" activate_this = os.path.join(project_base_dir, 'bin/activate_this.py')
-" execfile(activate_this, dict(__file__=activate_this))
-" EOF
 
 "======================================================================
 " sc/pc 파일 cpp 형식으로 읽기
@@ -269,7 +263,7 @@ map <silent> <leader>g :call ToggleCB()<cr>
 map <Leader>n :call ToggleNu()<CR>
 map <Leader>pt :call TogglePaste()<CR>
 map <silent> <Leader>P :!/Users/jklee/Dropbox/TOOL/blog_deploy.sh<CR><CR>
-"JEKYLL_TITLE""JEKYLL_TITLE"
+
 " 날짜관련
 inoremap <Leader>a #  <ESC>"=strftime("%Y-%m-%d")<CR>PA<CR>
 nnoremap <Leader>a A#  <ESC>"=strftime("%Y-%m-%d")<CR>PA<CR>
@@ -327,10 +321,16 @@ inoremap <C-k>   <ESC>:tabnext<CR>
 inoremap <C-l>   <ESC>:tabclose<CR>
 
 "======================================================================
+" ctags
+"======================================================================
+" Ctrl + [ to previous
+nnoremap <C-[> <Esc>:po<CR>
+
+"======================================================================
 " Plugin 관련 단축키
 "======================================================================
 nnoremap <silent> <Leader>e :call NERDTreeToggleInCurDir()<cr>
-nnoremap <silent> <F5> :TagbarToggle<CR>
+nnoremap <silent> <Leader>E :TagbarToggle<CR>
 nnoremap <silent> <Leader>w :Jpost! <c-r>=strftime("%Y/%m/%d %H:%M")<CR><CR>
 
 "======================================================================
@@ -350,14 +350,10 @@ iab mail.   taein2301@gmail.com
 iab del.    #if 0 // JKLEE_DELETE <c-r>=strftime("%Y/%m/%d %H:%M")<CR>
 iab end.    #endif
 
-iab img.   ![img](/Users/jklee/Dropbox/wiki/img/
-
 iab jklog. g_pclsFileLog->Write(LOG_CRITICAL, "JKLEE_LOG [%s][%s]",__FILE__,__LINE__);
-" iab logc.  g_pclsFileLog->Write(LOG_CRITICAL, "
-" iab logd.  g_pclsFileLog->Write(LOG_INFO, "
+iab logc.  g_pclsFileLog->Write(LOG_CRITICAL, "
+iab logd.  g_pclsFileLog->Write(LOG_INFO, "
 
-iab logd.  g_cLog->LogMsg(AZI_INFO, "[%s][%s][%d] ",__FILE__,__func__,__LINE__);
-iab logc.  g_cLog->LogMsg(AZI_ERR, "[%s][%s][%d] ",__FILE__,__func__,__LINE__);
 iab --.    ----------------------------------------------------------------------------------------------------
 
 "======================================================================
@@ -371,7 +367,7 @@ if has("win32")
 	source ~/vimfiles/vimrc_win.vim
 elseif has("macunix")
 	"======================================================================
-	" For Mac Terminal
+	" For Mac
 	"======================================================================
 	source ~/.vim/vimrc_mac.vim
 else
