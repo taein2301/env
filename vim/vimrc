@@ -96,7 +96,7 @@ set scs 								" 똑똑한 대소문자 구별 기능 사용
 "======================================================================
 " Path / Tag
 set path=./,~/,/usr/include,../../include,../include " header 파일 찾을 디렉토리
-set tags=./tags,../../tags,tags,../tags,../../libsrc/tags,/Users/jklee/Dropbox/Source/nocs_jklee/tags
+set tags=./tags,../../tags,tags,../tags,../../libsrc/tags,/Users/jklee/Dropbox/Source/nocs_jklee/tags,/Users/jklee/Dropbox/Source/nocs_jklee/src/tags
 "======================================================================
 
 "======================================================================
@@ -123,6 +123,11 @@ autocmd FileType json map <leader>j :%!python -m json.tool<CR>
 " Markdown
 "=====================================================================
 autocmd FileType markdown nnoremap <F8> :MarkedOpen<CR>
+
+"======================================================================
+" Yaml
+"=====================================================================
+autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab autoindent
 
 "======================================================================
 " Python
@@ -213,12 +218,18 @@ map <Leader>` :call Termrun("source ~/.zshrc")<CR>
 "======================================================================
 " 오늘 날짜로 DailyMemo 폴더에 파일 저장
 function! WriteDailyFileName()
-	let g:ddir='/Users/jklee/Dropbox/DailyMemo/'
+if has("win32")
+	let g:ddir='C:\Dropbox\notes\'
+else
+	let g:ddir='/Users/jklee/Dropbox/note/'
+endif
 	let fname = strftime("%Y-%m-%d")."."."md"
 	let path_and_file = g:ddir . fname
 	silent exe ":e " . path_and_file
 	echo path_and_file
 endfun
+
+map <Leader>ww :call WriteDailyFileName()<CR>
 
 function! WriteDailyFileNameTab()
 if has("win32")

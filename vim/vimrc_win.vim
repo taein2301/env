@@ -74,10 +74,8 @@ inoremap <C-Y> <C-O><C-R>
 "" PlugIn Setting Start
 "======================================================================
 call plug#begin('~/vimfiles/plugged_win')
-"Plug 'scrooloose/nerdtree'              		" File 네비게이터
-"Plug 'vimwiki/vimwiki', { 'branch': 'dev' }		" Vimwiki
-"Plug 'mhinz/vim-startify'                    	" Vim 첫화면
-"Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+Plug 'scrooloose/nerdtree'              		" File 네비게이터
+Plug 'mhinz/vim-startify'                    	" Vim 첫화면
 Plug 'parkr/vim-jekyll'
 call plug#end()
 
@@ -95,6 +93,36 @@ let g:jekyll_post_template =  [
 let g:jekyll_site_dir = '_site'
 
 map <silent> <Leader>P :!\Dropbox\TOOL\blog_deploy_win.bat<CR><CR>
+
+
+"======================================================================
+" Plug 'scrooloose/nerdtree'         " File 네비게이터
+let NERDTreeWinPos = "left"
+let NERDTreeIgnore=['\.exe$','\.WMV$','\.doc$','\.pptx$','\.ico$','\.PNG$','\.jpg$','\.pdf$','\.pyc$','\.pyo$', '\~$']
+let NERDTreeChDirMode = 2
+let NERDTreeShowBookmarks=1
+let NERDTreeAutoDeleteBuffer = 1
+
+" NerdTree 창 만 남았을때 vim 닫기
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+
+" Open NERDTree in the directory of the current file (or /home if no file is open)
+function! NERDTreeToggleInCurDir()
+	" If NERDTree is open in the current buffer
+	if (exists("t:NERDTreeBufName") && bufwinnr(t:NERDTreeBufName) != -1)
+		exe ":NERDTreeClose"
+	else
+		if (expand("%:t") != '')
+			exe ":NERDTreeFind"
+		else
+			exe ":NERDTreeToggle"
+		endif
+	endif
+endfunction
+
+" vim 만 입력 했을때 자동으로 NerdTree 뜨게 하기
+"autocmd StdinReadPre * let s:std_in=1
+"autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 "======================================================================
 " PlugIn Setting END
 "======================================================================

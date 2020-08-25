@@ -11,8 +11,8 @@ Plug 'nathanaelkane/vim-indent-guides'  " Indent 선 화면 출력
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
-Plug 'vimwiki/vimwiki', { 'branch': 'dev' }  " Vimwiki
-Plug 'mhinz/vim-startify'                    " Vim 첫화면
+"Plug 'vimwiki/vimwiki', { 'branch': 'dev' }  " Vimwiki
+"Plug 'mhinz/vim-startify'                    " Vim 첫화면
 Plug 'parkr/vim-jekyll'
 Plug 'itspriddle/vim-marked'       " Mac Marked2 앱 열기
 Plug 'majutsushi/tagbar'           " 소스 네비게이터
@@ -25,6 +25,7 @@ Plug 'ekalinin/dockerfile.vim'
 Plug 'mileszs/ack.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'vim-scripts/a.vim'
+
 "Plug 'python-mode/python-mode', { 'for': 'python', 'branch': 'develop' }
 call plug#end()
 
@@ -33,16 +34,10 @@ call plug#end()
 "cnoreabbrev Ack Ack!
 "nnoremap <F7> :Ack
 nnoremap <Leader>A :Ack!<Space><CR>
-nnoremap <Leader>q :e /Users/jklee/Dropbox/memo/Quick memo.md<CR>
 
-" * [ ] Plugin 'plasticboy/vim-markdown'     " For vim-markdown
 " * [ ] Plugin 'elzr/vim-json'               " For Json
 " * [ ] Plugin '907th/vim-auto-save'         " 자동 저장
 "
-" * [X] Plugin 'klen/python-mode'
-" * [X] Plugin 'nvie/vim-flake8'
-" * [X] Plugin 'airblade/vim-rooter'
-
 "======================================================================
 " Plug 'airblade/vim-rooter'         " project root 디렉토리
 " 2019-07-24
@@ -169,39 +164,6 @@ let g:jekyll_site_dir = '_site'
 
 "======================================================================
 " Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
-set updatetime=100
-
-" 저장할 때 자동으로 formatting 및 import
-let g:go_fmt_command = "goimports"
-let g:go_list_type = "quickfix"
-let g:go_addtags_transform = "camelcase"
-
-let g:go_autodetect_gopath = 1
-let g:go_highlight_types = 1
-let g:go_highlight_fields = 1
-let g:go_highlight_functions = 1
-let g:go_highlight_function_calls = 1
-let g:go_highlight_extra_types = 1
-let g:go_highlight_generate_tags = 1
-let g:go_highlight_operators = 1
-let g:go_auto_type_info = 1
-let g:go_auto_sameids = 1
-
-" quickfix 이동 및 open/close
-nnoremap <C-n> :cnext<CR>
-nnoremap <C-p> :cprevious<CR>
-
-" 테스트 커버리지 검사 및 색깔 표시 토글
-nnoremap <LocalLeader>c :GoCoverageToggle<CR>
-
-" 자주 쓰는 기능들
-autocmd FileType go nnoremap <Tab>b :GoBuild<CR>
-autocmd FileType go nnoremap <Tab>r :GoRun<CR>
-autocmd FileType go nnoremap <Tab><Tab>r :GoRun %<CR>
-
-autocmd FileType go nnoremap <Tab>t :GoTest<CR>
-autocmd FileType go nnoremap <Tab><Tab>t :GoTestFunc<CR>
-autocmd FileType go nnoremap <Tab>c :GoCoverageToggle<CR>
 
 
 
@@ -275,6 +237,8 @@ map <silent> <Leader>P :!/Users/jklee/Dropbox/TOOL/blog_deploy.sh<CR><CR>
 if has("gui_macvim")
 	set guifont=Monaco:h15
 endif
+
+nnoremap <Leader>q :e /Users/jklee/Dropbox/memo/Quick memo.md<CR>
 "======================================================================
 " End of File
 "======================================================================
