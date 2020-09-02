@@ -3,3 +3,4 @@ plugged_win/
 plugged_mac/
 autoload/
 .netrwhist
+.DS_Store

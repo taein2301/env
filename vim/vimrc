@@ -1,11 +1,11 @@
 "==============================================================
-" init.vim							          by JKLEE
+" vimrc							              by JKLEE
 "                                             2019-07-29
-"==============================================================
+"======================================================================
+
 
 "======================================================================
 " 기본 설정
-
 syntax on                               " 적절히 Syntax에 따라 하일라이팅 해주기
 set all&								" 모든 옵션을 원래대로 복원
 set autowrite					 		" :next 나 :make 같은 명령를 입력하면 자동으로 저장
@@ -17,31 +17,17 @@ set cursorline                          " 현재 커서 위치를 라인으로 �
 set ruler								" 화면 우측 하단에 현재 커서의 위치(줄,칸)를 보여준다.
 set noexpandtab
 set title								" 타이틀바에 현재 편집중인 파일을 표시
-"set ffs=unix,dos,mac					" unix dos mac 줄 변경자 모두 다 읽을 수 있도록 합니다.
-set ffs=unix,mac					" unix dos mac 줄 변경자 모두 다 읽을 수 있도록 합니다.
+set ffs=unix,dos,mac					" unix dos mac 줄 변경자 모두 다 읽을 수 있도록 합니다.
 set backspace=indent,eol,start			" backspace로 라인끝과 처음 자동들여쓰기한 부분을 지날수 있음
-set history=1000
-
 set clipboard+=unnamed					" use the clipboards of vim and win
 set clipboard+=unnamedplus  			" better support system clipboard
-"
 set go+=a								" Visual selection automatically copied to the clipboard
 set sel=exclusive						" 비주얼 모드에서의 동작 설정
-set showcmd
-set cc=200    				  " 200 번째 글자 위치에 선 넣기
-set noimd   				  " ESC 로 모드 변환시 한글-> 영문으로 변환
-set iminsert=1                " starts insert mode with english keymap
-set imsearch=-1               " starts search with english keymap
+set cc=200    				  			" 200 번째 글자 위치에 선 넣기
+set autochdir                 			" vim pwd 를 현재 파일 위치로 자동 이동
+set scrolloff=5               			" 스크롤 할때 위아래 줄 유지, 화살표 아래로 내리다 보면 아래에서 5줄 유지한 상황에서 스크롤 됨 "
+set autoread  							" The file has been changed since reading it > 메시지가 자꾸 나와서
 
-set autochdir                 " vim pwd 를 현재 파일 위치로 자동 이동
-set scrolloff=5               " 스크롤 할때 위아래 줄 유지, 화살표 아래로 내리다 보면 아래에서 5줄 유지한 상황에서 스크롤 됨 "
-
-
-" The file has been changed since reading it > 메시지가 자꾸 나와서
-set autoread
-" 줄 번호 표시 너비 설정
-set nuw=3
-"
 if v:version > 800
 	set belloff=all
 endif
@@ -118,12 +104,6 @@ autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 "=====================================================================
 autocmd FileType json map <leader>j :%!python -m json.tool<CR>
 
-
-"======================================================================
-" Markdown
-"=====================================================================
-autocmd FileType markdown nnoremap <F8> :MarkedOpen<CR>
-
 "======================================================================
 " Yaml
 "=====================================================================
@@ -152,11 +132,6 @@ autocmd BufNewFile,BufRead *.gc set filetype=cpp
 cab ㅈ w
 cab ㅂ q
 
-" ===========================================================
-" 기타 안쓰는 설정
-" ===========================================================
-"set keywordprg=ydic				" K를 눌렀을 때 실행할 명령어 "
-
 "======================================================================
 " 단축키 설정 Part1 : F1 ~ F12 : 정리중
 "======================================================================
@@ -177,10 +152,6 @@ endf
 function! TogglePaste()
 	let &paste = 1 - &paste
 endf
-
-if exists('g:loaded_checkbox')
-	" finish
-endif
 
 function! ToggleCB()
 	let line = getline('.')
@@ -221,7 +192,7 @@ function! WriteDailyFileName()
 if has("win32")
 	let g:ddir='C:\Dropbox\notes\'
 else
-	let g:ddir='/Users/jklee/Dropbox/note/'
+	let g:ddir='/Users/jklee/Dropbox/notes/'
 endif
 	let fname = strftime("%Y-%m-%d")."."."md"
 	let path_and_file = g:ddir . fname
@@ -231,49 +202,9 @@ endfun
 
 map <Leader>ww :call WriteDailyFileName()<CR>
 
-function! WriteDailyFileNameTab()
-if has("win32")
-	let g:ddir='C:\Users\jklee\GoogleD/TIL/'
-else
-	"let g:ddir='/Users/jklee/G-Drive/TIL/'
-	let g:ddir='/Users/jklee/Dropbox/TIL/'
-endif
-	let fname = strftime("%Y-%m-%d")."."."md"
-	let path_and_file = g:ddir . fname
-	silent exe ":tabnew " . path_and_file
-	echo path_and_file
-endfun
-
-let g:pymode_run_bind = '<leader>r'
-let g:pymode_breakpoint_bind = '<leader>b'
-
-" let g:pymode_rope_goto_definition_bind = '<leader>x'
-" let g:pymode_rope_move_bind = '<leader>X'
-" let g:pymode_rope_show_doc_bind = '<leader>pd'
-" let g:pymode_rope_rename_bind = '<leader>pr'
-" let g:pymode_rope_module_to_package_bind = '<leader>p1p'
-" let g:pymode_rope_extract_method_bind = '<leader>pm'
-" let g:pymode_rope_extract_variable_bind = '<leader>pl'
-" let g:pymode_rope_use_function_bind = '<leader>pu'
-" let g:pymode_rope_change_signature_bind = '<leader>ps'
-
-" inoremap <Leader>w<Leader>w <ESC>:e WriteDailyFileName()<CR><CR>
-" nnoremap <Leader>w<Leader>w :call WriteDailyFileName()<CR><CR>
-" inoremap <Leader>w<Leader>t <ESC>:e WriteDailyFileNameTab()<CR><CR>
-" nnoremap <Leader>w<Leader>t :call WriteDailyFileNameTab()<CR><CR>
-
-nnoremap <Leader>S :call WriteDailyFileNameTab()<CR><CR>
-
-" inoremap <Leader>ww <ESC>:e /Users/jklee/Dropbox/memo/index.md<CR><CR>
-" nnoremap <Leader>ww :e /Users/jklee/Dropbox/memo/index.md<CR><CR>
-" inoremap <Leader>wt <ESC>:tabfind /Users/jklee/Dropbox/memo/index.md<CR><CR>
-" nnoremap <Leader>wt :tabfind /Users/jklee/Dropbox/memo/index.md<CR><CR>
-"======================================================================
-
 map <silent> <leader>g :call ToggleCB()<cr>
 map <Leader>n :call ToggleNu()<CR>
 map <Leader>pt :call TogglePaste()<CR>
-map <silent> <Leader>P :!/Users/jklee/Dropbox/TOOL/blog_deploy.sh<CR><CR>
 
 " 날짜관련
 inoremap <Leader>a #  <ESC>"=strftime("%Y-%m-%d")<CR>PA<CR>
@@ -291,19 +222,13 @@ map <Leader>2 :NERDTree<CR> :OpenBookmark BLOG<CR><CR>
 map <Leader>3 :NERDTree<CR> :OpenBookmark stock_py<CR><CR>
 map <Leader>4 :NERDTree<CR> :OpenBookmark JK_Project<CR><CR>
 
-"======================================================================
-" Buffer File
-"======================================================================
-map <Leader>! :buffer 1<CR>
-map <Leader>@ :buffer 2<CR>
-map <Leader># :buffer 3<CR>
-map <Leader>$ :buffer 4<CR>
-map <Leader>% :buffer 5<CR>
 
 if v:version > 800
-map <Leader>t :!rm -rf tags \| ctags -a *.c \|ctags -a *.cpp \| ctags -a *.sc \| ctags -a *.pc \| ctags -a *.hpp
+	map <Leader>t :!rm -rf tags \| ctags -a *.c \|ctags -a *.cpp \| ctags -a *.sc \| ctags -a *.pc \| ctags -a *.hpp
 endif
+
 map <Leader>b :make clean ; make <CR>:copen<CR><CR>
+
 map <Leader>r :! ./run.sh<CR>
 
 " 영역이 지정된 상태에서 Tab 과 Shift-Tab 으로 들여쓰기/내어쓰기
@@ -342,7 +267,6 @@ nnoremap <C-[> <Esc>:po<CR>
 "======================================================================
 nnoremap <silent> <Leader>e :call NERDTreeToggleInCurDir()<cr>
 nnoremap <silent> <Leader>E :TagbarToggle<CR>
-nnoremap <silent> <Leader>w :Jpost! <c-r>=strftime("%Y/%m/%d %H:%M")<CR><CR>
 
 "======================================================================
 " 단축키 설정 Part3 : 축약
@@ -356,7 +280,6 @@ iab pppp    fprintf(stderr,"JKLEE_DEBUG FILE[%s] FUNC[%s] LINE[%d] \n",__FILE__,
 iab ppp     fprintf(stderr,"
 iab re.     RESULT :
 iab tag.    Tag :
-iab mail.   taein2301@gmail.com
 
 iab del.    #if 0 // JKLEE_DELETE <c-r>=strftime("%Y/%m/%d %H:%M")<CR>
 iab end.    #endif
@@ -388,6 +311,7 @@ else
 	" JKLEE_HOME 은 bashrc 에서 설정
 	source $JKLEE_HOME/env/vim/vimrc_linux.vim
 endif
+
 "======================================================================
 " End of File
 "======================================================================

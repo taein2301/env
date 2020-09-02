@@ -32,9 +32,11 @@ curl -L https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh | 
 > 터미널 제접속
 
 rm -rf ~/.zshrc
-ln -s /Users/jklee/Dropbox/ENV/zshrc ~/.zshrc
+ln -s /Users/jklee/Dropbox/ENV/Zsh/zshrc ~/.zshrc
 ln -s /Users/jklee/Dropbox/ENV/vim/vimrc ~/.vimrc
 ln -s /Users/jklee/Dropbox/ENV/vim/ ~/.vim
+
+ln -s /Users/jklee/Dropbox/ENV/ackrc ~/.ackrc
 
 # vim
 > curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim

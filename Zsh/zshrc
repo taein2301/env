@@ -49,6 +49,7 @@ alias findcore='find ~/ -name "core*"'
 alias ff='find ./ -name '
 alias mm='make clean; make'
 alias ls='ls -ltGF'
+alias dir='ls'
 alias cat='ccat'
 alias ali='alias | grep '
 
@@ -112,3 +113,4 @@ alias lamdaenv='docker run -it --rm  --volume /Users/jklee/Source:/Source --volu
 export OCS_HOME=/Users/jklee/Dropbox/Source/nocs_jklee
 alias cdnocs='cd /Users/jklee/Dropbox/Source/nocs_jklee/src'
 alias cdrt='cd /Users/jklee/Dropbox/Source/nocs_jklee/src/rating/RT'
+[[ /usr/local/bin/kubectl ]] && source <(kubectl completion zsh)
