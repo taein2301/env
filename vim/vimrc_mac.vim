@@ -1,25 +1,24 @@
 "======================================================================
 " MAC Vim 설정
 "======================================================================
+"
 "======================================================================
 "" PlugIn Setting Start
 "======================================================================
 call plug#begin('~/.vim/plugged_mac')
 Plug 'blueyed/vim-diminactive'     		" 비활성화 창 어둡게
 Plug 'scrooloose/nerdtree'              " File 네비게이터
+Plug 'scrooloose/nerdcommenter'         " 주석
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'parkr/vim-jekyll'
 Plug 'itspriddle/vim-marked'       " Mac Marked2 앱 열기
 Plug 'majutsushi/tagbar'           " 소스 네비게이터
-Plug 'airblade/vim-rooter'         " project root 디렉토리
-Plug 'scrooloose/nerdcommenter'    " 주석
-Plug 'ctrlpvim/ctrlp.vim'
 Plug 'airblade/vim-gitgutter'      " git 소스 수정 내용 화면 프린트
-Plug 'tpope/vim-fugitive'          " git
-Plug 'ekalinin/dockerfile.vim'
 Plug 'mileszs/ack.vim'
 Plug 'vim-scripts/a.vim'
+Plug 'airblade/vim-rooter'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 call plug#end()
 
@@ -36,7 +35,7 @@ nnoremap <Leader>A :Ack!<Space><CR>
 " Plug 'airblade/vim-rooter'         " project root 디렉토리
 " 2019-07-24
 let g:rooter_patterns = ['README.md', '.git/']
-" let g:rooter_silent_chdir = 1
+let g:rooter_silent_chdir = 1
 " let g:rooter_manual_only = 1
 
 "======================================================================
@@ -71,7 +70,7 @@ nmap <Leader>f :call CtrlPWithSearchText(expand('<cword>'), '')<CR>
 "======================================================================
 " Plug 'scrooloose/nerdtree'         " File 네비게이터
 let NERDTreeWinPos = "left"
-let NERDTreeIgnore=['\.exe$','\.WMV$','\.doc$','\.pptx$','\.ico$','\.PNG$','\.jpg$','\.pdf$','\.pyc$','\.pyo$', '\~$']
+let NERDTreeIgnore=['\.DS_Store','\.exe$','\.WMV$','\.doc$','\.pptx$','\.ico$','\.PNG$','\.jpg$','\.pdf$','\.pyc$','\.pyo$', '\~$']
 let NERDTreeChDirMode = 2
 let NERDTreeShowBookmarks=1
 let NERDTreeAutoDeleteBuffer = 1
@@ -146,9 +145,10 @@ let g:marked_filetypes = ["markdown", "mkd", "ghmarkdown", "vimwiki"]
 nmap <LocalLeader>e :MarkedToggle<CR>
 
 "======================================================================
+" Plug 'neoclide/coc.nvim', {'branch': 'release'}
+"======================================================================
 "" PlugIn Setting End
 "======================================================================
-
 map <silent> <Leader>P :!/Users/jklee/Dropbox/TOOL/blog_deploy.sh<CR><CR>
 
 "======================================================================

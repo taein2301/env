@@ -65,15 +65,13 @@ alias cdsrc='cd /Users/jklee/Dropbox/Source'
 alias cdinbox='cd /Users/jklee/Dropbox/INBOX'
 alias cdtil='cd /Users/jklee/Dropbox/TIL'
 alias til='cd /Users/jklee/Dropbox/TIL'
-alias cdpyenv='/Users/jklee/Source/python_env/pyenv/versions'
-alias cdgo='/Users/jklee/Dropbox/Source/go-Project'
-alias cdpoc='/Users/jklee/Dropbox/Source/LGU_POC/nocs/src'
-alias cdtool='/Users/jklee/Dropbox/TOOL'
-
+alias cdtool='cd /Users/jklee/Dropbox/TOOL'
+alias cdstock='cd /Users/jklee/Dropbox/Source/jklee/stock_py'
 #=====================================
 # Python env Setting 2019/04/22
 #=====================================
-export PYENV_ROOT=/Users/jklee/DEV/pyenv
+alias python='/usr/local/bin/python3'
+alias pip='/usr/local/bin/pip3'
 ## pyenv 가 설치할 python 위치
 export PYENV_ROOT=/Users/jklee/DEV/pyenv
 if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
@@ -88,6 +86,11 @@ eval "$(direnv hook zsh)"
 ## ruby 버전 설정
 #eval "$(rbenv init -)"
 
+#=====================================
+# For nvim
+#=====================================
+export XDG_CONFIG_HOME=/Users/jklee/Dropbox/ENV
+export XDG_DATA_HOME=$XDG_CONFIG_HOME
 
 #=====================================
 # Color man pages:

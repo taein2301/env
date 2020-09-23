@@ -58,6 +58,11 @@ ln -s /c/Users/jklee/Dropbox/ENV/vim ~/.vim
 ln -s /c/Users/jklee/Dropbox/ENV/vim ~/vimfiles
 ln -s /c/Users/jklee/Dropbox/ENV/vim/vimrc ~/_vimrc
 
+# Windows Powershell Link 설정  
+- 관리자 모드로 실행 
+
+New-item -itemType SymbolicLink -path "C:\Users\jklee\Documents\WindowsPowerShell\Microsoft.PowerShell_profile.ps1" -target "C:\Dropbox\ENV\PowerShell\Microsoft.PowerShell_profile.ps1"
+
 
 # DBever
 DBeaver 설정 파일

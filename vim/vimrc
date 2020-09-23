@@ -11,8 +11,7 @@ set all&								" 모든 옵션을 원래대로 복원
 set autowrite					 		" :next 나 :make 같은 명령를 입력하면 자동으로 저장
 set splitbelow                          " 새로운 창 아래 생성
 set nobackup							" 백업 파일을 만들지 않는다.
-set noswapfile
-set nowb
+set noswapfile							" swap file 안만들기
 set cursorline                          " 현재 커서 위치를 라인으로 표시
 set ruler								" 화면 우측 하단에 현재 커서의 위치(줄,칸)를 보여준다.
 set noexpandtab
@@ -88,7 +87,7 @@ set tags=./tags,../../tags,tags,../tags,../../libsrc/tags,/Users/jklee/Dropbox/S
 "======================================================================
 " 다음 파일 열때 닫았던 위치에 열림
 if v:version > 800
-autocmd BufReadPost *  if line("'\"") > 0 && line("'\"") <= line("$") |  exe "norm g`\"" | endif
+	autocmd BufReadPost *  if line("'\"") > 0 && line("'\"") <= line("$") |  exe "norm g`\"" | endif
 endif
 "======================================================================
 
@@ -114,7 +113,11 @@ autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab autoindent
 "=====================================================================
 autocmd FileType python set sts=4
 autocmd FileType python map <leader>r <Esc>:w<CR>:!clear;python3 %<CR>
-autocmd BufNewFile *.py 0r ~/.vim/syntax/skeleton_python | let IndentStyle="python"
+if has("win32")
+	autocmd BufNewFile *.py 0r ~/.vim/syntax/skeleton_python | let IndentStyle="python"
+elseif has("macunix")
+	autocmd BufNewFile *.py 0r ~/.vim/syntax/skeleton_python | let IndentStyle="python"
+endif
 autocmd FileType python let python_highlight_all = 1
 autocmd BufWritePre <buffer> :%s/\s\+$//e
 
@@ -135,8 +138,12 @@ cab ㅂ q
 "======================================================================
 " 단축키 설정 Part1 : F1 ~ F12 : 정리중
 "======================================================================
-inoremap <silent> <F2>  ![img](/Users/jklee/Dropbox/memo/img/ )
-inoremap <silent> <F3>  ![img](/assets/images/ )
+if has("win32")
+
+elseif has("macunix")
+	inoremap <silent> <F2>  ![img](/Users/jklee/Dropbox/memo/img/ )
+	inoremap <silent> <F3>  ![img](/assets/images/ )
+endif
 
 "======================================================================
 " 단축키 설정 Part2 : Map 을 이용한 단축키
@@ -190,9 +197,9 @@ map <Leader>` :call Termrun("source ~/.zshrc")<CR>
 " 오늘 날짜로 DailyMemo 폴더에 파일 저장
 function! WriteDailyFileName()
 if has("win32")
-	let g:ddir='C:\Dropbox\notes\'
+	let g:ddir='C:\Dropbox\memo\notes\'
 else
-	let g:ddir='/Users/jklee/Dropbox/notes/'
+	let g:ddir='/Users/jklee/Dropbox/memo/notes/'
 endif
 	let fname = strftime("%Y-%m-%d")."."."md"
 	let path_and_file = g:ddir . fname
@@ -257,12 +264,6 @@ inoremap <C-k>   <ESC>:tabnext<CR>
 inoremap <C-l>   <ESC>:tabclose<CR>
 
 "======================================================================
-" ctags
-"======================================================================
-" Ctrl + [ to previous
-nnoremap <C-[> <Esc>:po<CR>
-
-"======================================================================
 " Plugin 관련 단축키
 "======================================================================
 nnoremap <silent> <Leader>e :call NERDTreeToggleInCurDir()<cr>
@@ -289,6 +290,7 @@ iab logc.  g_pclsFileLog->Write(LOG_CRITICAL, "
 iab logd.  g_pclsFileLog->Write(LOG_INFO, "
 
 iab --.    ----------------------------------------------------------------------------------------------------
+
 
 "======================================================================
 " Extern vimrc

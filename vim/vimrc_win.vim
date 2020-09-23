@@ -12,7 +12,10 @@ set guioptions-=r  "remove right-hand scroll bar
 set guioptions-=L  "remove left-hand scroll bar
 
 "set guifont=JetBrains\ Mono:h11
-set guifont=D2Coding:h12
+set guifont=D2Coding:h14
+
+
+set shell=powershell
 
 " 마우스 우클릭 붙여넣기
 set mousemodel=extend
@@ -31,13 +34,12 @@ map <A-w> :q!<CR>
 set grepprg=grep\ -snH
 
 cd \%USERPROFILE\%\\Downloads
-nnoremap <Leader>x :e \%USERPROFILE\%\\Dropbox\\ENV\\vim\\vimrc<CR><CR>
+nnoremap <Leader>x :e \Dropbox\\ENV\\vim\\vimrc<CR><CR>
 
 " 한글 깨지는것을 utf-8 로 다시 인코딩해서 읽기
 " map <Leader>e :e ++enc=utf-8 <CR>
 set wildignore+=*\\tmp\\*,*.swp,*.zip,*.ex
 set fileencodings=utf-8
-
 
 "autocmd BufWritePre :set fileformat=unix
 "autocmd BufWritePre :set fileencoding=utf-8
