@@ -2,5 +2,6 @@ plugged/
 plugged_win/
 plugged_mac/
 autoload/
+coc/
 .netrwhist
 .DS_Store
