@@ -6,6 +6,7 @@
 
 "======================================================================
 " 기본 설정
+set nocompatible        " Use Vim defaults (much better!)
 syntax on                               " 적절히 Syntax에 따라 하일라이팅 해주기
 set all&								" 모든 옵션을 원래대로 복원
 set autowrite					 		" :next 나 :make 같은 명령를 입력하면 자동으로 저장
@@ -229,9 +230,6 @@ map <Leader>2 :NERDTree<CR> :OpenBookmark BLOG<CR><CR>
 map <Leader>3 :NERDTree<CR> :OpenBookmark stock_py<CR><CR>
 map <Leader>4 :NERDTree<CR> :OpenBookmark JK_Project<CR><CR>
 
-if v:version > 800
-	map <Leader>t :!rm -rf tags \| ctags -a *.c \|ctags -a *.cpp \| ctags -a *.sc \| ctags -a *.pc \| ctags -a *.hpp
-endif
 
 map <Leader>b :make clean ; make <CR>:copen<CR><CR>
 

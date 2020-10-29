@@ -1,7 +1,6 @@
 "======================================================================
 " vim_linux.vim  						          by JKLEE
 "======================================================================
-set nocompatible        " Use Vim defaults (much better!)
 
 call plug#begin('~/.vim/plugged_linux')
 Plug 'scrooloose/nerdcommenter'         " 주석
