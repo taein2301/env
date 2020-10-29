@@ -16,10 +16,10 @@ cd ~/user/jklee
 git clone https://github.com/taein2301/env.git
 source ~/user/jklee/env/bash/bashrc_comm
 ln -s $JKLEE_HOME/env/vim/colors ~/.vim/colors
+cd ~/.vim
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 vim 열고
 :PlugInstall
-
 ```
 
 ## Windows
