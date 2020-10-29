@@ -60,6 +60,7 @@ case "$TERM" in
 xterm-color) color_prompt=yes;;
 esac
 
+. $JKLEE_HOME/env/z/z.sh
 #=====================================
 # Color man pages:
 #=====================================
