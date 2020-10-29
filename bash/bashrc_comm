@@ -20,7 +20,7 @@ export GREP_OPTIONS='--color=auto'
 #=====================================
 # JKLEE_HOME Setting
 #=====================================
-export JKLEE_HOME='$HOME/user/jklee/'
+export JKLEE_HOME=${HOME}'/user/jklee'
 
 if      [ "$USER" = 'jklee' ]; then
 	export LANG=ko_KR.UTF-8
@@ -60,7 +60,7 @@ case "$TERM" in
 xterm-color) color_prompt=yes;;
 esac
 
-. $JKLEE_HOME/env/z/z.sh
+. $JKLEE_HOME/env/bash/z.sh
 #=====================================
 # Color man pages:
 #=====================================
