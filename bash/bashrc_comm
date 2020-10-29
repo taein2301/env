@@ -1,19 +1,12 @@
 # =====================================================================================
 #           Filename    : .bashrc_comm
 #           Description : COMMON bash shell 설정 파일
-#			Last Modification Day: 2020/04/28 JKLEE
+#			Last Modification Day: 2020/10/29 JKLEE
 # =====================================================================================
 
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib
 export TERM=xterm-color
 
-if      [ "$USER" = 'nocs05' ]; then
-	export JKLEE_HOME='/NOCS/NOCS05/user/jklee/'
-	export LANG=C
-else
-	export JKLEE_HOME='~/.jklee/'
-	export LANG=ko_KR.UTF-8
-fi
 
 HISTSIZE=1000
 HISTFILESIZE=2000
@@ -23,6 +16,17 @@ export HISTTIMEFORMAT="%Y-%m-%d %H:%M:%S : "
 export CLICOLOR=1
 export LSCOLORS=GxFxCxDxBxegedabagaced
 export GREP_OPTIONS='--color=auto'
+
+#=====================================
+# JKLEE_HOME Setting
+#=====================================
+export JKLEE_HOME='$HOME/user/jklee/'
+
+if      [ "$USER" = 'nocs05' ]; then
+	export LANG=C
+else
+	export LANG=ko_KR.UTF-8
+fi
 
 #=====================================
 # Alias Setting
@@ -41,6 +45,8 @@ alias run='. ~/.bashrc'
 alias findcore='find ~/ -name "core*"'
 alias ff='find ./ -name '
 alias mm='make clean; make'
+
+alias cdjklee='cd $JKLEE_HOME'
 
 #=====================================
 # Terminal Vi Key Mapping

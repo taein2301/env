@@ -6,23 +6,22 @@
 ----------------------------------------------------------------------------------------------------
 ## MAC
 
-## Linux
-.jklee 로 디렉토리 만들고 git으로 설정 파일 받아서 iterm 에서 로그인시 트리거 걸어놓고 사용.
+### Linux
+.jklee 로 디렉토리 만들고 git으로 설정 파일 clone
+접속 할때 iterm 설정에 `source /NOCS/pfnm/.jklee/bash/bashrc_comm` 넣어준다.
+
+```
+mkdir -p ~/user/jklee
+git clone https://github.com/taein2301/env.git
+ln -s $JKLEE_HOME/env/vim/colors ~/.vim/colors
+curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+vim 열고
+:PlugInstall
+
+```
 
 ## Windows
-
-
-##
-
 setting $JKLEE_HOME
-
-ln -s $JKLEE_HOME/env/vim/colors ~/.vim/colors
-
-```
-mkdir -p ~/.jklee
-cd ~/.jklee
-git clone https://github.com/taein2301/env.git ./
-```
 
 ## shell
 cd /Users/jklee/Dropbox/ENV
@@ -38,9 +37,6 @@ ln -s /Users/jklee/Dropbox/ENV/vim/ ~/.vim
 
 ln -s /Users/jklee/Dropbox/ENV/ackrc ~/.ackrc
 
-# vim
-> curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-> :PlugInstall
 
 # Windows MSYS2 bash Setting
 Windows 설정은 DropBox 가 연동 되어 있기 때문에 git clone 말고 DropBox 파일을 link 해서 사용한다.
@@ -55,18 +51,15 @@ ln -s /c/Users/jklee/Dropbox/ENV/vim/vimrc ~/.vimrc
 ln -s /c/Users/jklee/Dropbox/ENV/vim ~/.vim
 
 # Windows Gvim 설정
+```
 ln -s /c/Users/jklee/Dropbox/ENV/vim ~/vimfiles
 ln -s /c/Users/jklee/Dropbox/ENV/vim/vimrc ~/_vimrc
+```
 
-# Windows Powershell Link 설정  
-- 관리자 모드로 실행 
+# Windows Powershell Link 설정
+
+관리자 모드로 실행
 
 New-item -itemType SymbolicLink -path "C:\Users\jklee\Documents\WindowsPowerShell\Microsoft.PowerShell_profile.ps1" -target "C:\Dropbox\ENV\PowerShell\Microsoft.PowerShell_profile.ps1"
 
-
-# DBever
-DBeaver 설정 파일
-
-Last Modify : `2020-05-14`
-
-
+Last Modify : `2020-10-29`
