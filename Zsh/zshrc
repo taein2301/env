@@ -67,6 +67,7 @@ alias cdtil='cd /Users/jklee/Dropbox/TIL'
 alias til='cd /Users/jklee/Dropbox/TIL'
 alias cdtool='cd /Users/jklee/Dropbox/TOOL'
 alias cdstock='cd /Users/jklee/Dropbox/Source/jklee/stock_py'
+alias cddrop='cd /Users/jklee/Dropbox'
 #=====================================
 # Python env Setting 2019/04/22
 #=====================================
@@ -85,6 +86,8 @@ eval "$(direnv hook zsh)"
 
 ## ruby 버전 설정
 #eval "$(rbenv init -)"
+
+alias ls='lsd'
 
 #=====================================
 # For nvim
@@ -117,3 +120,9 @@ export OCS_HOME=/Users/jklee/Dropbox/Source/nocs_jklee
 alias cdnocs='cd /Users/jklee/Dropbox/Source/nocs_jklee/src'
 alias cdrt='cd /Users/jklee/Dropbox/Source/nocs_jklee/src/rating/RT'
 [[ /usr/local/bin/kubectl ]] && source <(kubectl completion zsh)
+
+
+
+export CLASSPATH=.:/Users/jklee/Dropbox/Source/Ntels/JAVA-Project/jni_test
+
+. /Users/jklee/Dropbox/ENV/z/z.sh

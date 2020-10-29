@@ -78,7 +78,13 @@ inoremap <C-Y> <C-O><C-R>
 call plug#begin('~/vimfiles/plugged_win')
 Plug 'scrooloose/nerdtree'              		" File 네비게이터
 Plug 'mhinz/vim-startify'                    	" Vim 첫화면
-Plug 'parkr/vim-jekyll'
+Plug 'parkr/vim-jekyll'							" Blog
+Plug 'blueyed/vim-diminactive'     				" 비활성화 창 어둡게
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'majutsushi/tagbar'           " 소스 네비게이터
+Plug 'airblade/vim-gitgutter'      " git 소스 수정 내용 화면 프린트
+Plug 'vim-scripts/a.vim'
 call plug#end()
 
 "======================================================================

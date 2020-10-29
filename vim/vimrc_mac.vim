@@ -6,22 +6,62 @@
 "" PlugIn Setting Start
 "======================================================================
 call plug#begin('~/.vim/plugged_mac')
+Plug 'scrooloose/nerdcommenter'         " 주석
 Plug 'blueyed/vim-diminactive'     		" 비활성화 창 어둡게
 Plug 'scrooloose/nerdtree'              " File 네비게이터
-Plug 'scrooloose/nerdcommenter'         " 주석
+Plug 'majutsushi/tagbar'           		" 소스 네비게이터
+Plug 'airblade/vim-gitgutter'      		" git 소스 수정 내용 화면 프린트
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'parkr/vim-jekyll'
-Plug 'itspriddle/vim-marked'       " Mac Marked2 앱 열기
-Plug 'majutsushi/tagbar'           " 소스 네비게이터
-Plug 'airblade/vim-gitgutter'      " git 소스 수정 내용 화면 프린트
 Plug 'mileszs/ack.vim'
 Plug 'vim-scripts/a.vim'
 Plug 'airblade/vim-rooter'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-
+"Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'prabirshrestha/vim-lsp'
+Plug 'mattn/vim-lsp-settings'
+Plug 'prabirshrestha/asyncomplete.vim'
+Plug 'prabirshrestha/asyncomplete-lsp.vim'
 call plug#end()
 
+inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+inoremap <expr> <cr>    pumvisible() ? "\<C-y>" : "\<cr>"
+
+let g:asyncomplete_auto_completeopt = 0
+
+set completeopt=menuone,noinsert,noselect,preview
+
+if executable('pyls')
+    " pip install python-language-server
+    au User lsp_setup call lsp#register_server({
+        \ 'name': 'pyls',
+        \ 'cmd': {server_info->['pyls']},
+        \ 'allowlist': ['python'],
+        \ })
+endif
+
+function! s:on_lsp_buffer_enabled() abort
+    setlocal omnifunc=lsp#complete
+    setlocal signcolumn=yes
+    if exists('+tagfunc') | setlocal tagfunc=lsp#tagfunc | endif
+    nmap <buffer> gd <plug>(lsp-definition)
+    nmap <buffer> gr <plug>(lsp-references)
+    nmap <buffer> gi <plug>(lsp-implementation)
+    nmap <buffer> gt <plug>(lsp-type-definition)
+    nmap <buffer> <leader>rn <plug>(lsp-rename)
+    nmap <buffer> [g <Plug>(lsp-previous-diagnostic)
+    nmap <buffer> ]g <Plug>(lsp-next-diagnostic)
+    nmap <buffer> K <plug>(lsp-hover)
+    
+    " refer to doc to add more commands
+endfunction
+
+augroup lsp_install
+    au!
+    " call s:on_lsp_buffer_enabled only for languages that has the server registered.
+    autocmd User lsp_buffer_enabled call s:on_lsp_buffer_enabled()
+augroup END
 "======================================================================
 " Plug 'mileszs/ack.vim'
 "cnoreabbrev Ack Ack!
@@ -146,6 +186,18 @@ nmap <LocalLeader>e :MarkedToggle<CR>
 
 "======================================================================
 " Plug 'neoclide/coc.nvim', {'branch': 'release'}
+"inoremap <silent><expr> <TAB>
+"      \ pumvisible() ? "\<C-n>" :
+"      \ <SID>check_back_space() ? "\<TAB>" :
+"      \ coc#refresh()
+"inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+"
+"function! s:check_back_space() abort
+"  let col = col('.') - 1
+"  return !col || getline('.')[col - 1]  =~# '\s'
+"endfunction
+
+
 "======================================================================
 "" PlugIn Setting End
 "======================================================================

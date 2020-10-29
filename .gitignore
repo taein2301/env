@@ -2,6 +2,7 @@ plugged/
 plugged_win/
 plugged_mac/
 autoload/
+vim-lsp-settings
 coc/
 .netrwhist
 .DS_Store
