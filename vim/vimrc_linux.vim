@@ -10,6 +10,8 @@ Plug 'majutsushi/tagbar'           		" 소스 네비게이터
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'vim-scripts/a.vim'
+Plug 'prabirshrestha/vim-lsp'
+Plug 'mattn/vim-lsp-settings'
 call plug#end()
 "======================================================================
 "" PlugIn Setting
